@@ -1,9 +1,12 @@
 import matplotlib.pyplot as plt
+import sys
 
-results_dir = 'results1'
+results_dir = sys.argv[1]
+
+
 
 def plot_variation_in_ssd_lam():
-    with open(results_dir+'/lam-hyperedges-hospital-period-1h-0.0-unique.tsv', 'r') as f:
+    with open(results_dir+'/lam/hyperedges-0.0.tsv', 'r') as f:
         ucs = []
         for line in f:
             line = line.strip()
@@ -12,9 +15,10 @@ def plot_variation_in_ssd_lam():
     # print(ssds)
     ssds = [uc[-1] for uc in ucs]
     return ssds, range(1, len(ssds) + 1)
+
 
 def plot_variation_in_ssd_am():
-    with open(results_dir+'/am-hyperedges-hospital-period-1h-0.0-unique.tsv', 'r') as f:
+    with open(results_dir+'/am/hyperedges-0.0.tsv', 'r') as f:
         ucs = []
         for line in f:
             line = line.strip()
@@ -24,8 +28,9 @@ def plot_variation_in_ssd_am():
     ssds = [uc[-1] for uc in ucs]
     return ssds, range(1, len(ssds) + 1)
 
+
 def plot_percentage_nodes_ssd_am():
-    with open(results_dir+'/am-hyperedges-hospital-period-1h-0.0-unique.tsv', 'r') as f:
+    with open(results_dir+'/am/hyperedges-0.0.tsv', 'r') as f:
         ucs = []
         for line in f:
             line = line.strip()
@@ -44,7 +49,7 @@ def plot_percentage_nodes_ssd_am():
 
 
 def plot_percentage_nodes_ssd_lam():
-    with open(results_dir+'/lam-hyperedges-hospital-period-1h-0.0-unique.tsv', 'r') as f:
+    with open(results_dir+'/lam/hyperedges-0.0.tsv', 'r') as f:
         ucs = []
         for line in f:
             line = line.strip()

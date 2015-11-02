@@ -26,7 +26,7 @@ class SDMiner:
         while len(S) > 0:
             T = []
             for U in S:
-                if temporalGraph.subgraph_divergence(U) <= phi:
+                if temporalGraph.compute_subgraph_divergence(U) <= phi:
                     output.append(U)
                     T.append(U)
             S, support_data = SDMiner.__generate_candidates(T)
@@ -50,7 +50,7 @@ class SDMiner:
         while len(S) > 0:
             T = []
             for U in S:
-                if temporalGraph.subgraph_divergence(U) <= phi:
+                if temporalGraph.compute_subgraph_divergence(U) <= phi:
                     deletes.extend([parent for parent in support_data if U in support_data])
                     T.append(U)
             S, support_data = SDMiner.__generate_candidates(T)

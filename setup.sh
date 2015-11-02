@@ -1,20 +1,26 @@
 #!/bin/sh
 
-results="results1"
-datafile="datahospital"
+NOW=$(date +'%Y-%m-%d-%H-%M-%S')
+datafile="seprox"
+results="hyperedge-results/$datafile-$NOW"
 
 mkdir $results
+mkdir "$results/lam"
+mkdir "$results/am"
 
-for sigma in 0.1 0.2 0.3 0.4 0.5 0.6
+
+for sigma in 0.1 0.2 0.3
 do
    for constraint in "am" "lam"
    do
-      python3 ParseData.py $datafile $sigma $constraint > $results/$constraint-hyperedges-hospital-period-1h-$sigma.tsv
+      python3 ParseData.py $datafile $sigma $constraint > $results/$constraint/hyperedges-$sigma.tsv
       echo "$sigma $constraint"
    done
 done
 
-cat $results/lam-* > $results/lam-hyperedges-hospital-period-1h-0.0.tsv
-cat $results/am-* > $results/am-hyperedges-hospital-period-1h-0.0.tsv
-uniq $results/lam-hyperedges-hospital-period-1h-0.0.tsv > $results/lam-hyperedges-hospital-period-1h-0.0-unique.tsv
-uniq $results/am-hyperedges-hospital-period-1h-0.0.tsv > $results/am-hyperedges-hospital-period-1h-0.0-unique.tsv
+cat $results/lam/* > $results/lam/hyperedges-0.0.tsv
+cat $results/am/* > $results/am/hyperedges-0.0.tsv
+uniq $results/lam/hyperedges-0.0.tsv > $results/lam/hyperedges-0.0-unique.tsv
+uniq $results/am/hyperedges-0.0.tsv > $results/am/hyperedges-0.0-unique.tsv
+
+python3 plot.py $results
