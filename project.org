@@ -1,0 +1,9 @@
+* Pending tasks
+** TODO Organize the project directory
+** TODO Commit the project to Group's SVN Repo
+** TODO Generate graphs for each of the data-sets
+* Questions
+** What is the SSD of the rest of the nodes for each UC ?
+** What is the SSD of the remaining nodes after covering top r UCs ?
+** What can we say about the rest of nodes i.e. the nodes which are not part of UCs ?
+** Can we reduce the graph to smaller ensemble by aligning the UCs according to their freq distribution ?
