@@ -44,7 +44,7 @@ def plot_percentage_nodes_ssd_am():
             cummulitive_nodes.insert(i, nodes[i])
         else:
             cummulitive_nodes.insert(i, list(set(cummulitive_nodes[i-1]).union(set(nodes[i]))))
-    percentage_of_nodes_covered = [float(100*len(cummulitive_nodes[i]))/75 for i in range(len(cummulitive_nodes))]
+    percentage_of_nodes_covered = [float(100*len(cummulitive_nodes[i]))/74 for i in range(len(cummulitive_nodes))]
     return percentage_of_nodes_covered, range(1, len(ssds) + 1)
 
 
@@ -63,15 +63,15 @@ def plot_percentage_nodes_ssd_lam():
             cummulitive_nodes.insert(i, nodes[i])
         else:
             cummulitive_nodes.insert(i, list(set(cummulitive_nodes[i-1]).union(set(nodes[i]))))
-    percentage_of_nodes_covered = [float(100*len(cummulitive_nodes[i]))/75 for i in range(len(cummulitive_nodes))]
+    percentage_of_nodes_covered = [float(100*len(cummulitive_nodes[i]))/74 for i in range(len(cummulitive_nodes))]
     return percentage_of_nodes_covered, range(1, len(ssds) + 1)
 
 
 lams = plot_variation_in_ssd_lam()
 ams = plot_variation_in_ssd_am()
 plt.subplot(211)
-plt.plot(ams[1], ams[0])
-plt.plot(lams[1], lams[0])
+plt.plot(ams[1], ams[0], 'r+')
+plt.plot(lams[1], lams[0], 'b+')
 plt.xlabel('UC Rank')
 plt.ylabel('SSD')
 

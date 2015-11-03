@@ -252,6 +252,12 @@ class Ensemble:
                                       self.compute_scaled_subgraph_divergence(list(hyperedge))))
         return None
 
+    def compute_am_sigma_hyperedges_dict(self, sigma_range):
+        sigma_hyperedges_dict = {}
+        for i in sigma_range:
+            sigma_hyperedges_dict[i] = [sorted(hyperedge) for hyperedge in self.maximal_sigma_ssd_ucs(i) if len(hyperedge)>2]
+        return sigma_hyperedges_dict
+
     def generate_looselyantimonotone_hyperedges_report(self, sigma):
         """
         Prints the report in following format
@@ -279,3 +285,8 @@ def list_to_tab_seperated_string(l):
     for i in l:
         result += ('%s\t' % i)
     return result.rstrip()
+
+def frange(x, y, jump):
+  while x < y:
+    yield x
+    x += jump

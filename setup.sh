@@ -1,7 +1,7 @@
 #!/bin/sh
 
 NOW=$(date +'%Y-%m-%d-%H-%M-%S')
-datafile="seprox"
+datafile="rmprox"
 results="hyperedge-results/$datafile-$NOW"
 
 mkdir $results
@@ -9,7 +9,7 @@ mkdir "$results/lam"
 mkdir "$results/am"
 
 
-for sigma in 0.1 0.2 0.3
+for sigma in 0.1 0.2 0.3 0.4 0.5 0.6
 do
    for constraint in "am" "lam"
    do
