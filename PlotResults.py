@@ -5,11 +5,12 @@ from Ensemble import Ensemble
 __author__ = 'adb'
 
 
-datafile = 'datahospital'
+datafile = 'sephone'
 results_folder = 'hyperedge-results/' + datafile
 graph_summary_file = 'hyperedge-results/' + datafile + '/' + datafile + '.summary'
 lam_results_folder = results_folder + '/lam'
 am_results_folder = results_folder + '/am'
+
 
 def compute_percentage_of_nodes_covered(nodes, num_of_nodes):
     cummulitive_nodes = []
@@ -19,6 +20,7 @@ def compute_percentage_of_nodes_covered(nodes, num_of_nodes):
         else:
             cummulitive_nodes.insert(i, list(set(cummulitive_nodes[i-1]).union(set(nodes[i]))))
     return [float(100*len(cummulitive_nodes[i]))/num_of_nodes for i in range(len(cummulitive_nodes))]
+
 
 def plot_ssd_vs_rank(max_rank):
     with open(am_results_folder + '/top-' + str(max_rank) + '-hyperedges.tsv', 'r') as f:
@@ -32,6 +34,7 @@ def plot_ssd_vs_rank(max_rank):
     plt.legend(loc='lower right')
     plt.xlabel('UC Rank')
     plt.ylabel('SSD')
+
 
 def plot_percent_of_nodes_vs_rank(max_rank, num_of_nodes):
     with open(am_results_folder + '/top-' + str(max_rank) + '-hyperedges.tsv', 'r') as f:
@@ -50,8 +53,6 @@ def plot_percent_of_nodes_vs_rank(max_rank, num_of_nodes):
     plt.ylabel('% Nodes')
 
 
-
-
 with open(graph_summary_file, 'r') as f:
     for line in f:
         line = line.strip()
@@ -59,6 +60,6 @@ with open(graph_summary_file, 'r') as f:
         num_of_timestamps, num_of_nodes, min_num_of_edges, max_num_of_edges, total_num_of_edges = int(summary[0]), int(summary[1]), int(summary[2]), int(summary[3]), int(summary[4])
 
 
-plot_ssd_vs_rank(128)
-plot_percent_of_nodes_vs_rank(128, num_of_nodes)
+plot_ssd_vs_rank(1024)
+plot_percent_of_nodes_vs_rank(1024, num_of_nodes)
 plt.show()
