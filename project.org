@@ -7,6 +7,11 @@
 ** What is the SSD of the remaining nodes after covering top r UCs ?
 ** What can we say about the rest of nodes i.e. the nodes which are not part of UCs ?
 ** Can we reduce the graph to smaller ensemble by aligning the UCs according to their freq distribution ?
+** What is the composition of UCs calculated by AM and LAM?
+*** Can we count number of 3,4,5 size UCS ?
+*** Can plot the difference between the size of UCs found for LAM and AM ?
+*** Can we compute the jaccard index for similarity in nodes for LAM and AM ?
+*** Can we put ucs in equivalence class ? Find the counts of equivalence classes ?
 * Instructions
 ** Input file
 ** Output file
