@@ -162,7 +162,7 @@ class Ensemble:
         found_subgraphs = {}
         for G in self.get_all_static_graphs():
             if G.size() > 0:
-                subgraph = str(sorted([tuple(sorted(e)) for e in G.subgraph(nodes).edges()], key=lambda tup: tup[0]))
+                subgraph = str(sorted([tuple(sorted(e)) for e in G.subgraph(nodes).edges()], key=lambda tup: (tup[0], tup[1])))
                 if subgraph in found_subgraphs:
                     found_subgraphs[subgraph].append(G.graph['timestamp'])
                 else:

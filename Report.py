@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 __author__ = 'adb'
 
-datafile = 'rmprox'
+datafile = 'seprox'
 results_folder = 'hyperedge-results/' + datafile
 
 sigma_range = [0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
