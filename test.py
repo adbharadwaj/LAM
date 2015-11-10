@@ -43,7 +43,7 @@ def test_equivalence_partition(iterable_list, relation = lambda x, y: x == y):
     # for o, c in partitions.items(): print(o, ':', c)
     return classes, partitions
 
-with open('sephone', 'r') as f:
+with open('seprox', 'r') as f:
     T = Ensemble()
     for line in f:
         line = line.strip()
@@ -55,7 +55,7 @@ with open('sephone', 'r') as f:
 
 nodes_freq_dist_map = collections.OrderedDict()
 ssd_buckets = collections.OrderedDict()
-with open('hyperedge-results/sephone/lam/top-1024-hyperedges.tsv', 'r') as f:
+with open('hyperedge-results/seprox/lam/top-1024-hyperedges.tsv', 'r') as f:
     for line in f:
         line = line.strip()
         nodes = [int(n) for n in line.split('\t')[:-1]]
@@ -71,7 +71,7 @@ with open('hyperedge-results/sephone/lam/top-1024-hyperedges.tsv', 'r') as f:
             nodes_freq_dist_map[str(dist)] = [nodes]
 
 # pprint(ssd_buckets)
-# pprint(len(nodes_freq_dist_map.keys()))
+pprint(len(nodes_freq_dist_map.keys()))
 for k,v in nodes_freq_dist_map.items():
     print(str(k) + '\t' + str(v))
 # for tup in tups:
