@@ -71,9 +71,9 @@ with open('hyperedge-results/sephone/lam/top-1024-hyperedges.tsv', 'r') as f:
             nodes_freq_dist_map[str(dist)] = [nodes]
 
 # pprint(ssd_buckets)
-pprint(len(nodes_freq_dist_map.keys()))
+# pprint(len(nodes_freq_dist_map.keys()))
 for k,v in nodes_freq_dist_map.items():
-    print(k, v)
+    print(str(k) + '\t' + str(v))
 # for tup in tups:
 #     print(tup)
 # classes, partitions = test_equivalence_partition(iter(tups))
