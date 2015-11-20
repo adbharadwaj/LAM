@@ -19,3 +19,5 @@
 ** Output file
 ** Generating UCs
 ** Generating graphs
+* 19 November
+** Refactor code to do multiple things by command line. Write code in such a way that you can run simulations from shell script. No hardcoding at all.
